@@ -1,4 +1,4 @@
-from Main import menu
+import Main 
 
 def consultarSaldo():
     print("consultar saldo")

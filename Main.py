@@ -1,31 +1,42 @@
 #Imports das funções
-from Funções.Cadastrar import cadastrar
-from Funções.Depositar import depositar
-from Funções.Sacar import sacar
-from Funções.CosultarSaldo import consultarSaldo
-from Funções.ConsultarExtrato import consultarExtrato
-from Funções.AtualizarDados import atualizarDados
+import Funcoes.Cadastrar as Cadastrar
+import Funcoes.Depositar as Depositar 
+import Funcoes.Sacar as Sacar 
+import Funcoes.ConsultarSaldo as ConsultarSaldo
+import Funcoes.ConsultarExtrato as ConsultarExtrato
+import Funcoes.AtualizarDados as AtualizarDados
+
+from Funcoes.Cadastrar import contaCadastrada
 
 def menu():
     print("MACK BANK - ESCOLHA UMA OPÇÃO:\n (1) CADASTRAR CONTA CORRENTE\n (2) DEPOSITAR")
     print(" (3) SACAR\n (4) CONSULTAR SALDO\n (5) CONSULTAR EXTRATO\n (6) ATUALIZAR INFORMAÇÕES\n (7) FINALIZAR")
-    escolha = int(input())
+    escolha = input("Sua opção: ")
     
-    if escolha < 1 or escolha > 7:
+    if escolha == '' or not escolha.isdigit():
         print("ESCOLHA UMA OPÇÃO VÁLIDA")
         menu()
-    elif escolha == 1:
-        cadastrar()
+    else:
+        opcao = int(escolha)
+    
+    if opcao < 1 or opcao > 7:
+        print("OPCAO INVALIDA")   
+    elif opcao == 1 and contaCadastrada == 1:
+        print()
+        print("CONTA JÁ CADASTRADA")
+        print() 
+    elif opcao == 1:
+        Cadastrar.cadastrar()
     elif escolha == 2:
-        depositar()
+        Depositar.depositar()
     elif escolha == 3:
-        sacar()
+        Sacar.sacar()
     elif escolha == 4:
-        consultarSaldo()
+        ConsultarSaldo.consultarSaldo()
     elif escolha == 5:
-        consultarExtrato()
+        ConsultarExtrato.consultarExtrato()
     elif escolha == 6:
-        atualizarDados()
+        AtualizarDados.atualizarDados()
     elif escolha == 7:
         print("MACK BANK - SOBRE\nEste programa foi desenvolvido por\nMateus Alves da Silva")
 menu()

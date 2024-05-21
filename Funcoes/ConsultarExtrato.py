@@ -1,4 +1,4 @@
-from Main import menu
+import Main 
 
 def consultarExtrato():
     print("consultarExtrato")
