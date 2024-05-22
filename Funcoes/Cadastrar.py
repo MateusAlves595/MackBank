@@ -53,9 +53,10 @@ limiteCliente = []
 senhaCliente = []
 cpfCliente = []
 contaCadastrada = 0
+historicoCliente = []
 
 def cadastrar():
-    global contaCliente, nomeCliente, telefoneCliente, contaCadastrada, emailCliente, saldoCliente, limiteCliente, senhaCliente, cpfCliente
+    global contaCliente, historicoCliente, nomeCliente, telefoneCliente, contaCadastrada, emailCliente, saldoCliente, limiteCliente, senhaCliente, cpfCliente
     numeroAleatorio = random.randint(1000, 9999)
     LimparTerminal.limparTerminal()
     print("MACK BANK - CADASTRO DE CONTA")
