@@ -1,15 +1,14 @@
 #Imports das funções
-import Funcoes.Cadastrar as Cadastrar
-import Funcoes.Depositar as Depositar 
-import Funcoes.Sacar as Sacar 
-import Funcoes.ConsultarSaldo as ConsultarSaldo
-import Funcoes.ConsultarExtrato as ConsultarExtrato
-from Funcoes.LimparTerminal import limparTerminal
+from Funcoes.Cadastrar import cadastrar
+from Funcoes.Depositar import depositar 
+from Funcoes.Sacar import sacar 
+from Funcoes.ConsultarSaldo import consultarSaldo
+from Funcoes.ConsultarExtrato import consultarExtrato
+from Funcoes.Sacar import erros
 
 from Funcoes.Cadastrar import contaCadastrada
 
 def menu():
-    limparTerminal()
     print("MACK BANK - ESCOLHA UMA OPÇÃO:\n (1) CADASTRAR CONTA CORRENTE\n (2) DEPOSITAR")
     print(" (3) SACAR\n (4) CONSULTAR SALDO\n (5) CONSULTAR EXTRATO\n (6) FINALIZAR")
     escolha = input("Sua opção: ")
@@ -27,15 +26,21 @@ def menu():
         print("CONTA JÁ CADASTRADA")
         print() 
     elif opcao == 1:
-        Cadastrar.cadastrar()
+        cadastrar()
     elif opcao == 2:
-        Depositar.depositar()
-    elif opcao == 3:
-        Sacar.sacar()
-    elif opcao == 4:
-        ConsultarSaldo.consultarSaldo()
-    elif opcao == 5:
-        ConsultarExtrato.consultarExtrato()
+        depositar()
+    elif opcao == 3 and erros == 3:
+        print("SUA CONTA ESTÁ BLOQUEADA")
+    elif opcao == 3 and erros < 3:
+        sacar()
+    elif opcao == 4 and erros == 3:
+        print("SUA CONTA ESTÁ BLOQUEADA")
+    elif opcao == 4 and erros < 3:
+        consultarSaldo()
+    elif opcao == 5 and erros == 3:
+        print("SUA CONTA ESTÁ BLOQUEADA")
+    elif opcao == 5 and erros < 3:
+        consultarExtrato()
     elif opcao == 6:
         print("MACK BANK - SOBRE\nEste programa foi desenvolvido por\nMateus Alves da Silva")
 menu()

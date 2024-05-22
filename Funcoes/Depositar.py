@@ -18,7 +18,6 @@ def validarValor(valor):
     else:
         return True
 
-
 def depositar():
     limparTerminal()
     print("MACK BANK - DEPOSITO EM CONTA")
