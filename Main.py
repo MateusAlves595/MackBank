@@ -58,7 +58,7 @@ def validarValor(valor):
 
 def limparTerminal():
     return os.system('cls' if os.name == 'nt' else 'clear')
-
+    
 #Variáveis
 contaCliente = []
 nomeCliente = []
@@ -338,7 +338,7 @@ def consultarExtrato():
     print("ULTIMAS OPERAÇÕES")
     for i in historicoCliente:
         if i < 0:
-            print(f"\nSAQUE: R$ -{i:.2f}")
+            print(f"\nSAQUE: R$ {i:.2f}")
         else:
             print(f"\nDEPÓSITO: R$ {i:.2f}")
     print(f"SALDO EM CONTA: R$ {saldoCliente[cliente]:.2f}")
